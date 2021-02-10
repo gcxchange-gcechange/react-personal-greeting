@@ -12,13 +12,16 @@ import { BaseClientSideWebPart, WebPartContext } from '@microsoft/sp-webpart-bas
 import PersonalGreeting from './components/PersonalGreeting';
 import { IPersonalGreetingProps } from './components/IPersonalGreetingProps';
 import { PropertyFieldColorPicker, PropertyFieldColorPickerStyle } from '@pnp/spfx-property-controls/lib/PropertyFieldColorPicker';
+import * as strings from 'PersonalGreetingWebPartStrings';
 
 export interface IPersonalGreetingWebPartProps {
-  greetingText: string;
+  greetingTextEN: string;
+  greetingTextFR: string;
   context: WebPartContext;
   position: string;
   textColor: string;
   fontSize: number;
+  backgroundColor: string;
 }
 
 const fontSizeOptions: IPropertyPaneDropdownOption[] = [
@@ -74,11 +77,13 @@ export default class PersonalGreetingWebPart extends BaseClientSideWebPart <IPer
     const element: React.ReactElement<IPersonalGreetingProps> = React.createElement(
       PersonalGreeting,
       {
-        greetingText: this.properties.greetingText,
+        greetingTextEN: this.properties.greetingTextEN,
+        greetingTextFR: this.properties.greetingTextFR,
         context: this.context,
         position: this.properties.position,
         textColor: this.properties.textColor,
-        fontSize: this.properties.fontSize
+        fontSize: this.properties.fontSize,
+        backgroundColor: this.properties.backgroundColor
       }
     );
 
@@ -105,8 +110,11 @@ export default class PersonalGreetingWebPart extends BaseClientSideWebPart <IPer
             {
               groupName: 'Settings',
               groupFields: [
-                PropertyPaneTextField('greetingText', {
-                  label: 'Greeting Text',
+                PropertyPaneTextField('greetingTextEN', {
+                  label: strings.GreetingEn,
+                }),
+                PropertyPaneTextField('greetingTextFR', {
+                  label: strings.GreetingFr,
                 }),
                 PropertyPaneDropdown('position', {
                   label: 'Text Position',
@@ -137,6 +145,14 @@ export default class PersonalGreetingWebPart extends BaseClientSideWebPart <IPer
                   selectedColor: this.properties.textColor,
                   style: PropertyFieldColorPickerStyle.Full,
                   key: 'textColor'
+                }),
+                PropertyFieldColorPicker('backgroundColor', {
+                  label: 'background Color',
+                  properties: this.properties,
+                  onPropertyChange: this.onPropertyPaneFieldChanged,
+                  selectedColor: this.properties.backgroundColor,
+                  style: PropertyFieldColorPickerStyle.Full,
+                  key: 'backgroundColor'
                 })
               ]
             }

@@ -1,4 +1,9 @@
+copy of: https://github.com/pnp/sp-dev-fx-webparts/tree/master/samples/react-personal-greeting
 # react-personal-greeting
+
+## Update
+
+Can also modifie the background color and the greeting text can be add in french and english.
 
 ## Summary
 

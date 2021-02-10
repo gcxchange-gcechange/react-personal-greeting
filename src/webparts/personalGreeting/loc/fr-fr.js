@@ -3,9 +3,8 @@ define([], function() {
     "PropertyPaneDescription": "Description",
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
-    "UserLang": "EN",
-    "GreetingEn": "Greeting text in english",
-    "GreetingFr": "Greeting in french"
-
+    "UserLang": "FR",
+    "GreetingEn": "Salutation en anglais",
+    "GreetingFr": "Salutation en français"
   }
 });
