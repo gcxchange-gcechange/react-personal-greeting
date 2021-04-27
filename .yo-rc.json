@@ -17,7 +17,7 @@
     "framework": "react",
     "isCreatingSolution": true,
     "version": "1.11.0",
-    "libraryName": "react-personal-greeting",
+    "libraryName": "personal-greeting",
     "libraryId": "5e7ea24d-fccc-4d96-a56c-488564d9c61c",
     "packageManager": "npm",
     "isDomainIsolated": false,
